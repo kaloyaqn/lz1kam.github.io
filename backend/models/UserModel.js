@@ -5,10 +5,6 @@ const User = mongoose.Schema({
         type: String,
         required: true
     },
-    email:{
-        type: String,
-        required: true
-    },
     gender:{
         type: String,
         required: true
@@ -19,7 +15,15 @@ const User = mongoose.Schema({
     },
     firma: {
         type: String,
+        required: false
+    },
+    broi: {
+        type: Number,
         required: true
+    },
+    cena: {
+        type: Number,
+        required: false
     }
 });
  

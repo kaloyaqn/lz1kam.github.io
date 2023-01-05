@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
  
 const AddUser = () => {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [gender, setGender] = useState("Male");
   const [mqsto, setMqsto] = useState("");
   const [firma, setFirma] = useState("");
+  const [broi, setBroi] = useState("");
+  const [cena, setCena] = useState("");
   const navigate = useNavigate();
  
   const saveUser = async (e) => {
@@ -15,10 +16,11 @@ const AddUser = () => {
     try {
       await axios.post("http://localhost:5000/users", {
         name,
-        email,
         gender,
         mqsto,
         firma,
+        broi,
+        cena,
       });
       navigate("/");
     } catch (error) {
@@ -43,7 +45,7 @@ const AddUser = () => {
             </div>
           </div>
           <div className="field">
-            <label className="label">Mqsto</label>
+            <label className="label">Локация</label>
             <div className="control">
               <input
                 type="text"
@@ -55,14 +57,26 @@ const AddUser = () => {
             </div>
           </div>
           <div className="field">
-            <label className="label">Имейл</label>
+            <label className="label">Брой</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
+                value={broi}
+                onChange={(e) => setBroi(e.target.value)}
+                placeholder="Брой"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Цена</label>
+            <div className="control">
+              <input
+                type="text"
+                className="input"
+                value={cena}
+                onChange={(e) => setCena(e.target.value)}
+                placeholder="Цена"
               />
             </div>
           </div>
