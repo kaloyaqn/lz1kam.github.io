@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
  
 const UserList = () => {
   const [users, setUser] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(""); // added state variable
  
   useEffect(() => {
     getUsers();
@@ -22,10 +23,31 @@ const UserList = () => {
       console.log(error);
     }
   };
+
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+ 
+  const filteredUsers = users.filter((user) => {
+    return (
+      user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.firma.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.mqsto.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  });
+  
  
   return (
     <div className="columns mt-5">
+            <input
+          type="text"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={handleSearch}
+        />
       <div className="column is-half">
+
+
         <Link to="add" className="btn btn-primary">
           Добави
         </Link>
@@ -43,7 +65,7 @@ const UserList = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {filteredUsers.map((user, index) => (
               <tr key={user._id}>
                 <td>{index + 1}</td>
                 <td>{user.name}</td>
