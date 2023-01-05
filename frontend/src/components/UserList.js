@@ -38,12 +38,13 @@ const UserList = () => {
   
  
   return (
-    <div className="columns mt-5">
-            <input
+    <div className="container mt-5">
+          <input
           type="text"
-          placeholder="Search"
+          placeholder="Потърси продукт..."
           value={searchQuery}
           onChange={handleSearch}
+          className="form-control mb-3"
         />
       <div className="column is-half">
 
