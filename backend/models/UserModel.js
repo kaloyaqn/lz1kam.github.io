@@ -16,6 +16,10 @@ const User = mongoose.Schema({
     mqsto: {
         type: String,
         required: true
+    },
+    firma: {
+        type: String,
+        required: true
     }
 });
  

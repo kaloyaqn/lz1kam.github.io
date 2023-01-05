@@ -4,7 +4,7 @@ import cors from "cors";
 import UserRoute from "./routes/UserRoute.js";
 
 const app = express();
-mongoose.connect('mongodb://localhost:27017/fullstack_db',{
+mongoose.connect('mongodb+srv://kalo:kalo@test.6arqr56.mongodb.net/test',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 });

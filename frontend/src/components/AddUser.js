@@ -7,6 +7,7 @@ const AddUser = () => {
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("Male");
   const [mqsto, setMqsto] = useState("");
+  const [firma, setFirma] = useState("");
   const navigate = useNavigate();
  
   const saveUser = async (e) => {
@@ -17,6 +18,7 @@ const AddUser = () => {
         email,
         gender,
         mqsto,
+        firma,
       });
       navigate("/");
     } catch (error) {
@@ -61,6 +63,18 @@ const AddUser = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
+              />
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Фирма</label>
+            <div className="control">
+              <input
+                type="text"
+                className="input"
+                value={firma}
+                onChange={(e) => setFirma(e.target.value)}
+                placeholder="Фирма"
               />
             </div>
           </div>
