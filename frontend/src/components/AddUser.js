@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
  
 const AddUser = () => {
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("Male");
   const [mqsto, setMqsto] = useState("");
   const [firma, setFirma] = useState("");
   const [broi, setBroi] = useState("");
@@ -16,7 +15,6 @@ const AddUser = () => {
     try {
       await axios.post("http://localhost:5000/users", {
         name,
-        gender,
         mqsto,
         firma,
         broi,
@@ -29,51 +27,51 @@ const AddUser = () => {
   };
  
   return (
-    <div className="columns mt-5">
-      <div className="column is-half">
+    <div className="container d-flex flex-row justify-content-center align-items-center vh-100">
+      <div className="col-md-3">
         <form onSubmit={saveUser}>
-          <div className="field">
-            <label className="label">Име</label>
+          <div className="field mb-2">
+            <label className="form-label">Име</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Name"
+                placeholder="Име"
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">Локация</label>
+          <div className="field mb-2">
+            <label className="form-label">Локация</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={mqsto}
                 onChange={(e) => setMqsto(e.target.value)}
-                placeholder="Mqsto"
+                placeholder="Локация"
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">Брой</label>
+          <div className="field mb-2">
+            <label className="form-label">Брой</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={broi}
                 onChange={(e) => setBroi(e.target.value)}
                 placeholder="Брой"
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">Цена</label>
+          <div className="field mb-2">
+            <label className="form-label">Цена</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={cena}
                 onChange={(e) => setCena(e.target.value)}
                 placeholder="Цена"
@@ -81,34 +79,20 @@ const AddUser = () => {
             </div>
           </div>
           <div className="field">
-            <label className="label">Фирма</label>
+            <label className="form-label">Фирма</label>
             <div className="control">
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 value={firma}
                 onChange={(e) => setFirma(e.target.value)}
                 placeholder="Фирма"
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">Пол</label>
+          <div className="field mt-3">
             <div className="control">
-              <div className="select is-fullwidth">
-                <select
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
-                >
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div className="field">
-            <div className="control">
-              <button type="submit" className="button is-success">
+              <button type="submit" className="btn btn-primary w-100">
                 Запази
               </button>
             </div>

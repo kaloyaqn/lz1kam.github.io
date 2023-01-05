@@ -38,7 +38,6 @@ const UserList = () => {
               <th>Брой</th>
               <th>Цена</th>
               <th>Общо</th>
-              <th>Mqsto</th>
               <th>Локация</th>
               <th>Действия</th>
             </tr>
@@ -52,7 +51,6 @@ const UserList = () => {
                 <td>{user.broi}</td>
                 <td>{user.cena} лв.</td>
                 <td>{user.cena * user.broi} лв.</td>
-                <td>{user.gender}</td>
                 <td>{user.mqsto}</td>
 
                 <td>
