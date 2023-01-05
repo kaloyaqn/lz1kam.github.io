@@ -26,7 +26,7 @@ const UserList = () => {
   return (
     <div className="columns mt-5">
       <div className="column is-half">
-        <Link to="add" className="button is-success">
+        <Link to="add" className="btn btn-primary">
           Добави
         </Link>
         <table className="table is-striped is-fullwidth mt-2">
@@ -58,13 +58,13 @@ const UserList = () => {
                 <td>
                   <Link
                     to={`edit/${user._id}`}
-                    className="button is-info is-small mr-1"
+                    className="btn btn-warning me-2 "
                   >
                     Редактирай
                   </Link>
                   <button
                     onClick={() => deleteUser(user._id)}
-                    className="button is-danger is-small"
+                    className="btn btn-danger "
                   >
                     Изтрий
                   </button>
