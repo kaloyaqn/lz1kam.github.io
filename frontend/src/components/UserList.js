@@ -36,7 +36,7 @@ const UserList = () => {
       index.toString().includes(searchQuery) // include this line
     );
   });
-  
+
  
   return (
     <div className="container mt-5">  
@@ -63,38 +63,43 @@ const UserList = () => {
               <th>Цена</th>
               <th>Общо</th>
               <th>Локация</th>
+              <th>Собственик</th>
               <th>Дата</th>
               <th>Действия</th>
             </tr>
           </thead>
           <tbody>
-            {filteredUsers.map((user, index) => (
-              <tr key={user._id} className="align-middle">
-                <td>{index + 1}</td>
-                <td>{user.name}</td>
-                <td>{user.firma}</td>
-                <td>{user.broi}</td>
-                <td>{user.cena} лв.</td>
-                <td>{user.cena * user.broi} лв.</td>
-                <td>{user.mqsto}</td>
-                <td>{user.date}</td>
-
-                <td>
-                  <Link
-                    to={`edit/${user._id}`}
-                    className="btn btn-warning me-2 "
-                  >
-                    Редактирай
-                  </Link>
-                  <button
-                    onClick={() => deleteUser(user._id)}
-                    className="btn btn-danger "
-                  >
-                    Изтрий
-                  </button>
-                </td>
-              </tr>
-            ))}
+          {filteredUsers.map((user, index) => {
+          let date = new Date(user.date);
+          let formattedDate = date.toLocaleDateString('en-GB', {day: 'numeric', month: 'numeric', year: 'numeric'});
+          return (
+            <tr key={user._id} className="align-middle">
+              <td>{index + 1}</td>
+              <td>{user.name}</td>
+              <td>{user.firma}</td>
+              <td>{user.broi}</td>
+              <td>{user.cena} лв.</td>
+              <td>{user.cena * user.broi} лв.</td>
+              <td>{user.mqsto}</td>
+              <td>{user.sobstvenik}</td>
+              <td>{formattedDate}</td>
+              <td>
+                <Link
+                  to={`edit/${user._id}`}
+                  className="btn btn-warning me-2 "
+                >
+                  Редактирай
+                </Link>
+                <button
+                  onClick={() => deleteUser(user._id)}
+                  className="btn btn-danger "
+                >
+                  Изтрий
+                </button>
+              </td>
+            </tr>
+          );
+        })}
           </tbody>
         </table>
       </div>

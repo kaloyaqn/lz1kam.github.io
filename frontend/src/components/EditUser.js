@@ -9,6 +9,7 @@ const EditUser = () => {
   const [broi, setBroi] = useState("");
   const [cena, setCena] = useState("");
   const [date, setDate] = useState("");
+  const [sobstvenik, setSobstvenik] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
  
@@ -24,6 +25,8 @@ const EditUser = () => {
     setBroi(response.data.broi);
     setCena(response.data.cena);
     setDate(response.data.date);
+    setSobstvenik(response.data.sobstvenik);
+
   };
  
   const updateUser = async (e) => {
@@ -36,6 +39,7 @@ const EditUser = () => {
         broi,
         cena,
         date,
+        sobstvenik,
       });
       navigate("/");
     } catch (error) {
@@ -46,7 +50,7 @@ const EditUser = () => {
   return (
     <div className="container d-flex flex-row justify-content-center align-items-center vh-100">
       <div className="col-md-3">
-        <form onSubmit={updateUser}>
+      <form onSubmit={updateUser}>
           <div className="field mb-2">
             <label className="form-label">Име</label>
             <div className="control">
@@ -56,6 +60,44 @@ const EditUser = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Име"
+              />
+            </div>
+          </div>
+          <div className="field mb-2">
+            <label className="form-label">Фирма</label>
+            <div className="control">
+              <input
+                type="text"
+                className="form-control"
+                value={firma}
+                onChange={(e) => setFirma(e.target.value)}
+                placeholder="Фирма"
+              />
+            </div>
+          </div>
+
+
+          <div className="field mb-2">
+            <label className="form-label">Брой</label>
+            <div className="control">
+              <input
+                type="number"
+                className="form-control"
+                value={broi}
+                onChange={(e) => setBroi(e.target.value)}
+                placeholder="Брой"
+              />
+            </div>
+          </div>
+          <div className="field mb-2">
+            <label className="form-label">Цена</label>
+            <div className="control">
+              <input
+                type="number"
+                className="form-control"
+                value={cena}
+                onChange={(e) => setCena(e.target.value)}
+                placeholder="Цена"
               />
             </div>
           </div>
@@ -72,38 +114,26 @@ const EditUser = () => {
             </div>
           </div>
           <div className="field mb-2">
-            <label className="form-label">Брой</label>
+            <label className="form-label">Собственик</label>
             <div className="control">
               <input
                 type="text"
                 className="form-control"
-                value={broi}
-                onChange={(e) => setBroi(e.target.value)}
-                placeholder="Брой"
+                value={sobstvenik}
+                onChange={(e) => setSobstvenik(e.target.value)}
+                placeholder="Собственик"
               />
             </div>
           </div>
           <div className="field mb-2">
-            <label className="form-label">Цена</label>
+            <label className="form-label">Дата</label>
             <div className="control">
               <input
-                type="text"
+                type="date"
                 className="form-control"
-                value={cena}
-                onChange={(e) => setCena(e.target.value)}
-                placeholder="Цена"
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="form-label">Фирма</label>
-            <div className="control">
-              <input
-                type="text"
-                className="form-control"
-                value={firma}
-                onChange={(e) => setFirma(e.target.value)}
-                placeholder="Фирма"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                placeholder="Дата"
               />
             </div>
           </div>

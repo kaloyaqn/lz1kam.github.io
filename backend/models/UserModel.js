@@ -24,6 +24,10 @@ const User = mongoose.Schema({
     date: {
         type: Date,
         required: false
+    },
+    sobstvenik: {
+        type: String,
+        required: false
     }
 });
  

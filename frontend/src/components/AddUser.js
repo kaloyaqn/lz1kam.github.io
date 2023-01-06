@@ -9,6 +9,7 @@ const AddUser = () => {
   const [broi, setBroi] = useState("");
   const [cena, setCena] = useState("");
   const [date, setDate] = useState("");
+  const [sobstvenik, setSobstvenik] = useState("");
   const navigate = useNavigate();
  
   const saveUser = async (e) => {
@@ -21,6 +22,7 @@ const AddUser = () => {
         broi,
         cena,
         date,
+        sobstvenik,
       });
       navigate("/");
     } catch (error) {
@@ -95,13 +97,25 @@ const AddUser = () => {
             </div>
           </div>
           <div className="field mb-2">
+            <label className="form-label">Собственик</label>
+            <div className="control">
+              <input
+                type="text"
+                className="form-control"
+                value={sobstvenik}
+                onChange={(e) => setSobstvenik(e.target.value)}
+                placeholder="Собственик"
+              />
+            </div>
+          </div>
+          <div className="field mb-2">
             <label className="form-label">Дата</label>
             <div className="control">
               <input
                 type="date"
                 className="form-control"
                 value={date}
-                onChange={(e) => setMqsto(e.target.value)}
+                onChange={(e) => setDate(e.target.value)}
                 placeholder="Дата"
               />
             </div>
