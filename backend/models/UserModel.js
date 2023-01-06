@@ -20,6 +20,10 @@ const User = mongoose.Schema({
     cena: {
         type: Number,
         required: false
+    },
+    date: {
+        type: Date,
+        required: true
     }
 });
  

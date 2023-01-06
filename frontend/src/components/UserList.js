@@ -63,6 +63,7 @@ const UserList = () => {
               <th>Цена</th>
               <th>Общо</th>
               <th>Локация</th>
+              <th>Дата</th>
               <th>Действия</th>
             </tr>
           </thead>
@@ -76,6 +77,7 @@ const UserList = () => {
                 <td>{user.cena} лв.</td>
                 <td>{user.cena * user.broi} лв.</td>
                 <td>{user.mqsto}</td>
+                <td>{user.date}</td>
 
                 <td>
                   <Link

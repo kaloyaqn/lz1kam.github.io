@@ -8,6 +8,7 @@ const AddUser = () => {
   const [firma, setFirma] = useState("");
   const [broi, setBroi] = useState("");
   const [cena, setCena] = useState("");
+  const [date, setDate] = useState("");
   const navigate = useNavigate();
  
   const saveUser = async (e) => {
@@ -19,6 +20,7 @@ const AddUser = () => {
         firma,
         broi,
         cena,
+        date,
       });
       navigate("/");
     } catch (error) {
@@ -43,6 +45,44 @@ const AddUser = () => {
             </div>
           </div>
           <div className="field mb-2">
+            <label className="form-label">Фирма</label>
+            <div className="control">
+              <input
+                type="text"
+                className="form-control"
+                value={firma}
+                onChange={(e) => setFirma(e.target.value)}
+                placeholder="Фирма"
+              />
+            </div>
+          </div>
+
+
+          <div className="field mb-2">
+            <label className="form-label">Брой</label>
+            <div className="control">
+              <input
+                type="number"
+                className="form-control"
+                value={broi}
+                onChange={(e) => setBroi(e.target.value)}
+                placeholder="Брой"
+              />
+            </div>
+          </div>
+          <div className="field mb-2">
+            <label className="form-label">Цена</label>
+            <div className="control">
+              <input
+                type="number"
+                className="form-control"
+                value={cena}
+                onChange={(e) => setCena(e.target.value)}
+                placeholder="Цена"
+              />
+            </div>
+          </div>
+          <div className="field mb-2">
             <label className="form-label">Локация</label>
             <div className="control">
               <input
@@ -55,38 +95,14 @@ const AddUser = () => {
             </div>
           </div>
           <div className="field mb-2">
-            <label className="form-label">Брой</label>
+            <label className="form-label">Дата</label>
             <div className="control">
               <input
-                type="text"
+                type="date"
                 className="form-control"
-                value={broi}
-                onChange={(e) => setBroi(e.target.value)}
-                placeholder="Брой"
-              />
-            </div>
-          </div>
-          <div className="field mb-2">
-            <label className="form-label">Цена</label>
-            <div className="control">
-              <input
-                type="text"
-                className="form-control"
-                value={cena}
-                onChange={(e) => setCena(e.target.value)}
-                placeholder="Цена"
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="form-label">Фирма</label>
-            <div className="control">
-              <input
-                type="text"
-                className="form-control"
-                value={firma}
-                onChange={(e) => setFirma(e.target.value)}
-                placeholder="Фирма"
+                value={mqsto}
+                onChange={(e) => setMqsto(e.target.value)}
+                placeholder="Дата"
               />
             </div>
           </div>

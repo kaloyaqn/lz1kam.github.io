@@ -8,6 +8,7 @@ const EditUser = () => {
   const [firma, setFirma] = useState("");
   const [broi, setBroi] = useState("");
   const [cena, setCena] = useState("");
+  const [date, setDate] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
  
@@ -21,7 +22,8 @@ const EditUser = () => {
     setMqsto(response.data.mqsto);
     setFirma(response.data.firma);
     setBroi(response.data.broi);
-    setCena(response.data.broi);
+    setCena(response.data.cena);
+    setDate(response.data.date);
   };
  
   const updateUser = async (e) => {
@@ -33,6 +35,7 @@ const EditUser = () => {
         firma,
         broi,
         cena,
+        date,
       });
       navigate("/");
     } catch (error) {
