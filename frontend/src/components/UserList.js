@@ -11,13 +11,13 @@ const UserList = () => {
   }, []);
  
   const getUsers = async () => {
-    const response = await axios.get("https://lz1kam-github-io.vercel.app/users");
+    const response = await axios.get("http://localhost:5000/users");
     setUser(response.data);
   };
  
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`https://lz1kam-github-io.vercel.app//users/${id}`);
+      await axios.delete(`http://localhost:5000/users/${id}`);
       getUsers();
     } catch (error) {
       console.log(error);
