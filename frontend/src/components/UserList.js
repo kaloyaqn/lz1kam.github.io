@@ -28,17 +28,18 @@ const UserList = () => {
     setSearchQuery(event.target.value);
   };
  
-  const filteredUsers = users.filter((user) => {
+  const filteredUsers = users.filter((user, index) => {
     return (
       user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       user.firma.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      user.mqsto.toLowerCase().includes(searchQuery.toLowerCase())
+      user.mqsto.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      index.toString().includes(searchQuery) // include this line
     );
   });
   
  
   return (
-    <div className="container mt-5">
+    <div className="container mt-5">  
           <input
           type="text"
           placeholder="Потърси продукт..."
@@ -67,7 +68,7 @@ const UserList = () => {
           </thead>
           <tbody>
             {filteredUsers.map((user, index) => (
-              <tr key={user._id}>
+              <tr key={user._id} className="align-middle">
                 <td>{index + 1}</td>
                 <td>{user.name}</td>
                 <td>{user.firma}</td>
