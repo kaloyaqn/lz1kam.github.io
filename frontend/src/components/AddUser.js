@@ -100,7 +100,7 @@ const AddUser = () => {
               <input
                 type="date"
                 className="form-control"
-                value={mqsto}
+                value={date}
                 onChange={(e) => setMqsto(e.target.value)}
                 placeholder="Дата"
               />

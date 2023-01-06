@@ -7,7 +7,7 @@ const User = mongoose.Schema({
     },
     mqsto: {
         type: String,
-        required: true
+        required: false
     },
     firma: {
         type: String,
@@ -15,7 +15,7 @@ const User = mongoose.Schema({
     },
     broi: {
         type: Number,
-        required: true
+        required: false
     },
     cena: {
         type: Number,
@@ -23,7 +23,7 @@ const User = mongoose.Schema({
     },
     date: {
         type: Date,
-        required: true
+        required: false
     }
 });
  
